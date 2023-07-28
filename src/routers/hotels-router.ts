@@ -5,8 +5,8 @@ import { getHotelRooms, getHotels } from "@/controllers/hotels-controller";
 const hotelsRouter = Router()
 
 hotelsRouter.use(authenticateToken)
-hotelsRouter.get("/hotels", getHotels)
-hotelsRouter.get("/hotels/:id", getHotelRooms)
+hotelsRouter.get("/", getHotels)
+hotelsRouter.get("/:hotelId", getHotelRooms)
 
 
 

@@ -53,7 +53,7 @@ describe("GET hotels/", () => {
         expect(status).toBe(httpStatus.PAYMENT_REQUIRED)
     })
 
-
+    
     it("should respond with status 404 when user has no enrollment", async () => {
         const user = await createUser()
         const token = await generateValidToken(user)
@@ -61,9 +61,8 @@ describe("GET hotels/", () => {
 
         const {status} =  await server.get("/hotels").set("Authorization", `Bearer ${token}`)
         expect(status).toBe(httpStatus.NOT_FOUND)
-
-
     })
+    
     it("should respond with status 200 and a list of hotels", async () => {
 
         const user = await createUser()
@@ -83,7 +82,7 @@ describe("GET hotels/", () => {
                 name: hotel.name,
                 image: hotel.image,
                 createdAt: hotel.createdAt.toISOString(),
-                updateAt: hotel.updatedAt.toISOString(),
+                updatedAt : hotel.updatedAt.toISOString(),
             }
         ])
     })
